@@ -96,8 +96,8 @@ class Export(GlancesExport):
         # - First frame containing the following prefix (STRING)
         # - Second frame with the Glances plugin name (STRING)
         # - Third frame with the Glances plugin stats (JSON)
-        message = [b(self.prefix).decode('utf-8'),
-                   b(name).decode('utf-8'),
+        message = [b(self.prefix).encode('utf-8'),
+                   b(name).encode('utf-8'),
                    asbytes(json.dumps(data))]
 
         # Write data to the ZeroMQ bus
